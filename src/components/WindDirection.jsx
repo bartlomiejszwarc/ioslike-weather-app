@@ -6,7 +6,7 @@ function WindDirection({ isDay, windDegree }) {
 				<NorthIcon
 					style={{
 						fontSize: "5.5rem",
-						transform: `rotate(${windDegree}deg)`,
+						transform: `rotate(${windDegree + 180}deg)`,
 					}}
 					className={`text-neutral-50`}
 				/>
@@ -44,7 +44,7 @@ function WindDirection({ isDay, windDegree }) {
 								? `bg-neutral-800`
 								: "bg-neutral-800"
 						}`}>
-						W
+						S
 					</div>
 				</div>
 				<div className={`absolute left-0 flex items-center justify-center`}>
@@ -56,7 +56,7 @@ function WindDirection({ isDay, windDegree }) {
 								? `bg-neutral-800`
 								: "bg-neutral-800"
 						}`}>
-						S
+						W
 					</div>
 				</div>
 			</div>
