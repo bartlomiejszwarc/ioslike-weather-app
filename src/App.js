@@ -2,12 +2,14 @@ import "./App.css";
 import LocationInput from "./components/LocationInput";
 import { QueryClient, QueryClientProvider } from "react-query";
 import ForecastCard from "./components/ForecastCard";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 const queryClient = new QueryClient({});
 
 function App() {
 	const [city, setCity] = useState(null);
 	const [isDay, setIsDay] = useState();
+	const [backgroundImagePath, setBackgroundImagePath] =
+		useState("bg-default.svg");
 	const getCity = (city) => {
 		setCity(city);
 	};
@@ -15,17 +17,20 @@ function App() {
 		setIsDay(isDay);
 	};
 
+	useEffect(() => {
+		if (city) {
+			if (isDay) setBackgroundImagePath("day-background.jpg");
+			else setBackgroundImagePath("bg-night.jpg");
+		} else {
+			setBackgroundImagePath("bg-default.svg");
+		}
+	}, [city, isDay]);
+
 	return (
 		<QueryClientProvider client={queryClient}>
 			<div
 				style={{
-					backgroundImage: `${
-						isDay && city
-							? "url(day-background.jpg)"
-							: !isDay && city
-							? "url(bg-night.jpg)"
-							: "url(bg-clouds.svg)"
-					}`,
+					backgroundImage: `url(${backgroundImagePath})`,
 					backgroundSize: "cover",
 					backgroundAttachment: "fixed",
 				}}
@@ -36,8 +41,8 @@ function App() {
 					{city ? (
 						<ForecastCard city={city} handleIsDay={getIsDay} />
 					) : (
-						<span className="text-3xl text-white text-center pt-8 font-thin">
-							Search a city to see current and upcoming weather
+						<span className="text-3xl text-white text-center pt-12 font-thin">
+							Search for a city to see current weather and forecast
 						</span>
 					)}
 				</div>

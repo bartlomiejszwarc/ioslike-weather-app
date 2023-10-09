@@ -29,7 +29,7 @@ function ForecastCard({ city, handleIsDay }) {
 		try {
 			if (city) {
 				const response = await axios.get(
-					`http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${city}&aqi=no&alerts=yes&days=10`
+					`https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${city}&aqi=no&alerts=yes&days=10`
 				);
 				handleIsDay(response.data?.current?.is_day);
 				const hour = getHourFromString(

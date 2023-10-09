@@ -21,6 +21,7 @@ function HourlyTemperature({ description, hours, isDay }) {
 							hour={getHour(hour)}
 							temperature={hour?.temp_c}
 							icon={hour?.condition?.icon}
+							hourIndex={key}
 						/>
 					))}
 				</div>

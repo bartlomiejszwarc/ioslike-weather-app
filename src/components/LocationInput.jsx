@@ -33,8 +33,8 @@ function LocationInput({ handleCityState }) {
 						value={cityName}
 						onChange={handleCityNameChange}
 						onKeyDown={handleKeyDown}
-						className="bg-transparent w-full text-white font-thin outline-none text-2xl py-1 pl-3 placeholder:text-2xl placeholder:font-thin placeholder:text-slate-300"
-						placeholder="Search for a city"
+						className="bg-transparent w-full text-white font-thin outline-none text-2xl py-1 pl-3 placeholder:text-xl placeholder:font-thin placeholder:text-slate-300"
+						placeholder="Search for city"
 					/>
 					<button onClick={handleSearch} className="text-white">
 						<SearchIcon />

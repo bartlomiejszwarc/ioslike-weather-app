@@ -9,7 +9,7 @@ function SunsetCard({ city, isDay }) {
 		try {
 			if (city) {
 				const response = await axios.get(
-					`http://api.weatherapi.com/v1/astronomy.json?key=${API_KEY}&q=${city}&aqi=no&alerts=yes&days=10`
+					`https://api.weatherapi.com/v1/astronomy.json?key=${API_KEY}&q=${city}&aqi=no&alerts=yes&days=10`
 				);
 				return response.data;
 			}

@@ -5,7 +5,7 @@ function WindDirection({ isDay, windDegree }) {
 			<div className="w-2/5 flex items-center justify-center relative border-4 border-neutral-300 border-dashed rounded-full aspect-square">
 				<NorthIcon
 					style={{
-						fontSize: "7rem",
+						fontSize: "5.5rem",
 						transform: `rotate(${windDegree}deg)`,
 					}}
 					className={`text-neutral-50`}

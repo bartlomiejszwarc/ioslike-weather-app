@@ -14,7 +14,7 @@ function AutocompleteCitiesList({ input, handleCitySelect }) {
 				setAutocompleteSearchDone(false);
 				if (input.length > 2) {
 					const response = await axios.get(
-						`http://api.weatherapi.com/v1/search.json?key=${API_KEY}&q=${input}&aqi=no`
+						`https://api.weatherapi.com/v1/search.json?key=${API_KEY}&q=${input}&aqi=no`
 					);
 					setAutocompleteSearchDone(true);
 					return response.data;
@@ -54,10 +54,8 @@ function AutocompleteCitiesList({ input, handleCitySelect }) {
 						))}
 					</>
 				) : data?.length === 0 && autocompleteSearchDone ? (
-					<div className="w-full text-center pt-4">
-						<span className="text-xl text-neutral-200 font-thin">
-							No matching locations found.
-						</span>
+					<div className="w-full flex max-h-36 font-inter z-10 bg-neutral-100 space-x-2 border-b-[1px] text-neutral-900 py-3 px-3">
+						<p>No matching locations found.</p>
 					</div>
 				) : null}
 			</div>
