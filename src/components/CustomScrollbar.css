@@ -11,3 +11,17 @@
 	background-color: rgb(170, 170, 170);
 	border-radius: 100px;
 }
+
+.cropped-image {
+	width: 100px;
+	height: 100px;
+	opacity: 0.85;
+}
+
+.none-image {
+	object-fit: none;
+}
+
+.position-70-15 {
+	object-position: 50% 32%;
+}

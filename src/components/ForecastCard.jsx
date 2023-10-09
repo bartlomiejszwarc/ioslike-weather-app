@@ -12,6 +12,7 @@ import FeelsLikeCard from "./FeelsLikeCard";
 import PrecipitationCard from "./PrecipitationCard";
 import VisibilityCard from "./VisibilityCard";
 import HumidityCard from "./HumidityCard";
+import MoonCard from "./MoonCard";
 
 const moment = require("moment-timezone");
 
@@ -107,6 +108,13 @@ function ForecastCard({ city, handleIsDay }) {
 						dewPoint={twentyForHoursData[0]?.dewpoint_c}
 					/>
 				</div>
+				<MoonCard
+					latitude={data?.location?.lat}
+					longitude={data?.location?.lon}
+					date={data?.current?.last_updated.slice(0, 10)}
+					isDay={data?.current?.is_day}
+					city={data?.location?.name}
+				/>
 			</div>
 		</>
 	);

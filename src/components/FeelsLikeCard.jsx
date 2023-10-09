@@ -2,7 +2,7 @@ import WeatherPropertyContainer from "./WeatherPropertyContainer";
 import ThermostatIcon from "@mui/icons-material/Thermostat";
 function FeelsLikeCard({ isDay, feelsLikeTemperature, actualTemperature }) {
 	const setDescription = () => {
-		const similarThreshold = 1;
+		const similarThreshold = 2;
 		const temperaturesDifference = Math.abs(
 			actualTemperature - feelsLikeTemperature
 		);

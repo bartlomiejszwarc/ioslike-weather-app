@@ -18,7 +18,7 @@ function CurrentForecast({
 				</span>
 			</div>
 			<span className="text-white text-7xl font-light">
-				{current?.temp_c}&#176;C
+				{roundHalf(current?.temp_c)}&#176;C
 			</span>
 			<span className="text-white text-2xl font-light">
 				{current?.condition?.text}
