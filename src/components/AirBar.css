@@ -1,0 +1,11 @@
+.air-gradient-bar {
+	background: rgb(65, 255, 54);
+	background: linear-gradient(
+		90deg,
+		rgba(65, 255, 54, 1) 0%,
+		rgba(243, 255, 52, 1) 20%,
+		rgba(255, 157, 50, 1) 40%,
+		rgb(241, 32, 32) 60%,
+		rgb(140, 30, 218) 80%
+	);
+}

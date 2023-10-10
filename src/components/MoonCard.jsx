@@ -2,9 +2,10 @@ import axios from "axios";
 import { useQuery } from "react-query";
 import { useState, useEffect } from "react";
 import WeatherPropertyContainer from "./WeatherPropertyContainer";
-import CustomScrollbar from "./CustomScrollbar.css";
 import NightlightIcon from "@mui/icons-material/Nightlight";
 import { Divider } from "@mui/material";
+import { Skeleton } from "@mui/material";
+
 function MoonCard({ longitude, latitude, date, city, isDay }) {
 	const SECRET = process.env.REACT_APP_ASTRONOMY_SECRET;
 	const ID = process.env.REACT_APP_ASTRONOMY_ID;
@@ -83,12 +84,17 @@ function MoonCard({ longitude, latitude, date, city, isDay }) {
 						</span>
 					</div>
 				</div>
-				<div className="w-2/5 flex justify-center">
-					<img
-						src={moonImagePath}
-						alt=""
-						className="cropped-image none-image position-70-15"
-					/>
+
+				<div className="w-2/5 flex justify-center items-center">
+					{moonImagePath.length !== 0 ? (
+						<img
+							src={moonImagePath}
+							alt="Moon phase image"
+							className="cropped-image none-image position-70-15"
+						/>
+					) : (
+						<Skeleton variant="circular" width={84} height={84} />
+					)}
 				</div>
 			</div>
 		</WeatherPropertyContainer>

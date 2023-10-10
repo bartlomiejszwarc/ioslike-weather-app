@@ -13,6 +13,7 @@ import PrecipitationCard from "./PrecipitationCard";
 import VisibilityCard from "./VisibilityCard";
 import HumidityCard from "./HumidityCard";
 import MoonCard from "./MoonCard";
+import AirQualityCard from "./AirQualityCard";
 
 const moment = require("moment-timezone");
 
@@ -30,7 +31,7 @@ function ForecastCard({ city, handleIsDay }) {
 		try {
 			if (city) {
 				const response = await axios.get(
-					`https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${city}&aqi=no&alerts=yes&days=10`
+					`https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${city}&aqi=yes&alerts=yes&days=10`
 				);
 				handleIsDay(response.data?.current?.is_day);
 				const hour = getHourFromString(
@@ -97,6 +98,17 @@ function ForecastCard({ city, handleIsDay }) {
 						precipitation={data?.current?.precip_mm}
 					/>
 				</div>
+				<MoonCard
+					latitude={data?.location?.lat}
+					longitude={data?.location?.lon}
+					date={data?.current?.last_updated.slice(0, 10)}
+					isDay={data?.current?.is_day}
+					city={data?.location?.name}
+				/>
+				<AirQualityCard
+					isDay={data?.current?.is_day}
+					qualityIndex={data?.current?.air_quality?.["us-epa-index"]}
+				/>
 				<div className="w-full flex h-40 space-x-2">
 					<VisibilityCard
 						isDay={data?.current?.is_day}
@@ -108,13 +120,6 @@ function ForecastCard({ city, handleIsDay }) {
 						dewPoint={twentyForHoursData[0]?.dewpoint_c}
 					/>
 				</div>
-				<MoonCard
-					latitude={data?.location?.lat}
-					longitude={data?.location?.lon}
-					date={data?.current?.last_updated.slice(0, 10)}
-					isDay={data?.current?.is_day}
-					city={data?.location?.name}
-				/>
 			</div>
 		</>
 	);

@@ -13,8 +13,8 @@
 }
 
 .cropped-image {
-	width: 100px;
-	height: 100px;
+	width: 84px;
+	height: 87px;
 	opacity: 0.85;
 }
 
@@ -23,5 +23,5 @@
 }
 
 .position-70-15 {
-	object-position: 50% 32%;
+	object-position: 50% 33%;
 }
