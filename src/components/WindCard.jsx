@@ -11,7 +11,7 @@ function WindCard({ data, isDay }) {
 				icon={<AirIcon />}
 				iconText={"Wind"}
 				size={"full"}>
-				<div className="flex w-full py-4 items-center justify-center">
+				<div className="flex w-full py-4 items-center justify-center space-x-4">
 					<div className="w-1/2 flex flex-col  text-neutral-50 px-4 space-y-1">
 						<div className="flex items-center space-x-2">
 							<span className="text-5xl">{Math.round(data?.wind_kph)}</span>

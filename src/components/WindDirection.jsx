@@ -2,10 +2,10 @@ import NorthIcon from "@mui/icons-material/North";
 function WindDirection({ isDay, windDegree }) {
 	return (
 		<>
-			<div className="w-2/5 flex items-center justify-center relative border-4 border-neutral-300 border-dashed rounded-full aspect-square">
+			<div className="h-32 w-32 flex items-center justify-center relative border-4 border-neutral-300 border-dashed rounded-full aspect-square">
 				<NorthIcon
 					style={{
-						fontSize: "5.5rem",
+						fontSize: "5rem",
 						transform: `rotate(${windDegree + 180}deg)`,
 					}}
 					className={`text-neutral-50`}
